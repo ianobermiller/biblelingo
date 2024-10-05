@@ -44,15 +44,23 @@ const bibleVerses = [
 ];
 
 export function App() {
-    const [count, setCount] = useState(0);
-    const currentVerse =
-        bibleVerses[Math.floor(Math.random() * bibleVerses.length)]!;
+    const [index, setIndex] = useState(0);
+    const currentVerse = bibleVerses[index];
+
+    if (!currentVerse) {
+        return <p>No verse selected</p>;
+    }
+
     return (
         <>
             <h1>Biblelingo</h1>
             <div class="card">
                 <p>{currentVerse.verse}</p>
-                <button onClick={() => setCount((count) => count + 2)}>
+                <button
+                    onClick={() =>
+                        setIndex(Math.floor(Math.random() * bibleVerses.length))
+                    }
+                >
                     Change verse
                 </button>
                 <p>{currentVerse.text}</p>
