@@ -1,0 +1,1 @@
+Sort bible verses by difficulty once we have a larger list of them.
